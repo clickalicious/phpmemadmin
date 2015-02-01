@@ -1,0 +1,93 @@
+body {
+    padding-top: 100px;
+    padding-bottom: 20px;
+}
+
+.navbar {
+    padding-bottom: 12px;
+    margin-bottom: 0;
+    background-color: #fff;
+}
+
+.panel-body {
+    padding-left: 12px;
+    padding-right: 12px;
+}
+
+.navbar-brand {
+    font-family: 'Yanone Kaffeesatz', sans-serif;
+    font-size: 24px;
+}
+
+pre {
+    border: 0;
+}
+
+code {
+    background: transparent !important;
+}
+
+.tooltips {
+    cursor: pointer;
+}
+
+.displayOnFullWidth {
+    display: none;
+}
+
+@media (min-width: 1144px) {
+    .displayOnFullWidth {
+        display: block;
+    }
+}
+
+.fork {
+    position: fixed;
+    top: 0;
+    right: 0;
+    border: 0;
+    z-index: 99999;
+}
+
+.red {
+    color: #C9302C;
+}
+
+.btn {
+    margin-left: 5px;
+}
+
+.tooltip-inner {
+    white-space: pre-wrap;
+}
+
+.panel {
+    margin-top: 42px;
+}
+
+.table-responsive .text-muted {
+    color: #999999;
+    opacity: 0.2;
+}
+
+.dt-responsive {
+    table-layout: fixed;
+}
+
+a.anchor{
+    display: block;
+    position: relative;
+    top: -70px;
+    visibility: hidden;
+}
+
+td span {
+    white-space: pre;           /* CSS 2.0 */
+    white-space: pre-wrap;      /* CSS 2.1 */
+    white-space: pre-line;      /* CSS 3.0 */
+    white-space: -pre-wrap;     /* Opera 4-6 */
+    white-space: -o-pre-wrap;   /* Opera 7 */
+    white-space: -moz-pre-wrap; /* Mozilla */
+    white-space: -hp-pre-wrap;  /* HP Printers */
+    word-wrap: break-word;      /* IE 5+ */
+}

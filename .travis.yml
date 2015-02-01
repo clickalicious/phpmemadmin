@@ -1,0 +1,42 @@
+language: php
+
+php:
+  - 5.3
+  - 5.4
+  - 5.5
+  - 5.6
+  - hhvm
+
+services:
+  - memcached
+
+before_install:
+  - composer self-update
+
+before_script:
+  - composer install --dev --prefer-source
+  - mkdir -p ./build/logs
+
+script:
+  - phpunit --configuration tests/phpunit.xml --coverage-clover ./build/logs/clover.xml
+
+after_script:
+  - php vendor/bin/coveralls
+
+after_success:
+  # CREATE GIT TAG
+  - git config --global user.email "builds@travis-ci.org"
+  - git config --global user.name "Travis"
+  - export GIT_TAG=build-$TRAVIS_BRANCH-$(date -u "+%Y-%m-%d")-$TRAVIS_BUILD_NUMBER
+  - echo -n $GIT_TAG > public/version
+  - git commit -m "Set build VERSION number" public/version
+  - git tag $GIT_TAG -a -m "Generated tag from TravisCI build $TRAVIS_BUILD_NUMBER"
+  - git push --tags --quiet https://$GITHUBKEY@github.com/clickalicious/phpMemAdmin > /dev/null 2>&1
+
+branches:
+  except:
+    - /^build-[0-9a-z\-]*/
+
+matrix:
+  allow_failures:
+    - php: hhvm

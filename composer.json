@@ -1,0 +1,46 @@
+{
+  "name": "clickalicious/phpmemadmin",
+  "description": "phpMemAdmin - Bringing Memcached to the web",
+  "type": "project",
+  "authors": [
+    {
+      "name": "Benjamin Carl",
+      "email": "opensource@clickalicious.de",
+      "homepage": "http://www.clickalicious.de",
+      "role": "Developer"
+    }
+  ],
+  "require": {
+    "clickalicious/memcached.php": "~0.1"
+  },
+  "require-dev": {
+    "satooshi/php-coveralls": "dev-master"
+  },
+  "autoload": {
+    "psr-0": {
+      "Clickalicious": "lib/"
+    }
+  },
+  "include-path": ["lib/"],
+  "minimum-stability": "dev",
+  "keywords": [
+    "Memcached",
+    "Admin",
+    "Client",
+    "Cluster",
+    "Management",
+    "Pool",
+    "PHP",
+    "clickalicious",
+    "phpMyAdmin"
+  ],
+  "homepage": "https://github.com/clickalicious/phpMemAdmin",
+  "license": [
+    "BSD-3-Clause"
+  ],
+  "support": {
+    "email": "opensource@clickalicious.de",
+    "issues": "https://github.com/clickalicious/phpMemAdmin/issues",
+    "wiki": "https://github.com/clickalicious/phpMemAdmin/wiki"
+  }
+}
