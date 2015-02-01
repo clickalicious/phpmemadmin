@@ -8,6 +8,7 @@ Bringing `Memcached` to the web.
 <a href="https://twitter.com/intent/tweet?hashtags=&original_referer=http%3A%2F%2Fgithub.com%2F&text=%23phpMemAdmin%20-%20Bringing%20%40memcached%20to%20the%20web.%20https%3A%2F%2Fgithub.com%2Fclickalicious%2FphpMemAdmin&tw_p=tweetbutton" target="_blank">
   <img src="http://jpillora.com/github-twitter-button/img/tweet.png"></img>
 </a>
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/clickalicious/phpmemadmin/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
 
 
 ## Features
