@@ -70,7 +70,7 @@ See [BSD-3-Clause](http://opensource.org/licenses/BSD-3-Clause "BSD-3-Clause") o
 
 
 ## Sponsors  
-Thanks to our sponsors and supporters:
+Thanks to our sponsors and supporters:  
 <a href="https://www.jetbrains.com/phpstorm/" title="PHP IDE :: JetBrains PhpStorm" target="_blank">
     <img src="https://www.jetbrains.com/phpstorm/documentation/docs/logo_phpstorm.png"></img>
 </a>
