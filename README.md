@@ -64,7 +64,7 @@ See [BSD-3-Clause](http://opensource.org/licenses/BSD-3-Clause "BSD-3-Clause") o
 
 ## Credit
 
-| [![Benjamin Carl](http://www.gravatar.com/avatar/4d97670d59ce760bd7c117a1dfe3cf43.png)](http://www.clickalicious.de) |
+| [![Benjamin Carl](http://de.gravatar.com/userimage/10744805/d0a6316a34accd0f2921519dfe4dee48.jpg?size=150)](http://www.clickalicious.de) |
 |---|
 | [Benjamin Carl](http://www.clickalicious.de) (creator) |
 
