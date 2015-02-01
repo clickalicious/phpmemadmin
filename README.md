@@ -5,10 +5,10 @@ Bringing `Memcached` to the web.
 
 ![Logo of phpMemAdmin](docs/logo.png)
 
+[![Build Status](https://travis-ci.org/clickalicious/phpMemAdmin.svg?branch=master)](https://travis-ci.org/clickalicious/phpMemAdmin)
 <a href="https://twitter.com/intent/tweet?hashtags=&original_referer=http%3A%2F%2Fgithub.com%2F&text=%23phpMemAdmin%20-%20Bringing%20%40memcached%20to%20the%20web.%20https%3A%2F%2Fgithub.com%2Fclickalicious%2FphpMemAdmin&tw_p=tweetbutton" target="_blank">
   <img src="http://jpillora.com/github-twitter-button/img/tweet.png"></img>
 </a>
-[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/clickalicious/phpmemadmin/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
 
 
 ## Features
@@ -26,23 +26,18 @@ Bringing `Memcached` to the web.
 ## Cluster Dashboard
 ![Cluster Dashboard](docs/phpMemAdmin_01-small.png)
 
+
 ## Host Dashboard
 ![Host Dashboard](docs/phpMemAdmin_02-small.png)
+
 
 ## Data Management
 ![Host Dashboard](docs/phpMemAdmin_03-small.png)
 
-## Requirements
-### PHP-Version(s)
+
+## Install
+### Requirements
  - PHP >= 5.3 (compatible up to version 5.6 - but **not compatible** with *hhvm*)
-
-
-## Philosophy
-
-This project is neither tested nor designed to be used in heavy load environments. It was designed and developed by me as a helper for developing in combination with Memcached.
-
-
-## Installation
 
 The recommended way to install this tool is through [Composer](http://getcomposer.org/). Require the `clickalicious/phpmemadmin` package into your `composer.json` file:
 
@@ -65,6 +60,13 @@ The recommended way to install this tool is through [Composer](http://getcompose
 ## License
 **BSD-3-Clause** 
 See [BSD-3-Clause](http://opensource.org/licenses/BSD-3-Clause "BSD-3-Clause") or LICENSE file for details.
+
+
+## Credit
+
+| [![Benjamin Carl](http://www.gravatar.com/avatar/4d97670d59ce760bd7c117a1dfe3cf43.png)](http://www.clickalicious.de) |
+|---|
+| [Benjamin Carl](http://www.clickalicious.de) (creator) |
 
 
 ## Sponsors  
