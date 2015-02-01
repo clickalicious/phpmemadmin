@@ -1,5 +1,5 @@
 body {
-    padding-top: 100px;
+    padding-top: 98px;
     padding-bottom: 20px;
 }
 
@@ -17,6 +17,11 @@ body {
 .navbar-brand {
     font-family: 'Yanone Kaffeesatz', sans-serif;
     font-size: 24px;
+    padding: 0;
+}
+
+.navbar-default {
+    height: 100px;
 }
 
 pre {

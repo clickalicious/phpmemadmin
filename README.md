@@ -1,9 +1,5 @@
-phpMemAdmin
-===========
-
-Bringing `Memcached` to the web.
-
-![Logo of phpMemAdmin](docs/logo.png)
+![Logo of phpMemAdmin](docs/logo-large.png)
+Bringing `Memcached` to the web
 
 [![Build Status](https://travis-ci.org/clickalicious/phpMemAdmin.svg?branch=master)](https://travis-ci.org/clickalicious/phpMemAdmin)
 <a href="https://twitter.com/intent/tweet?hashtags=&original_referer=http%3A%2F%2Fgithub.com%2F&text=%23phpMemAdmin%20-%20Bringing%20%40memcached%20to%20the%20web.%20https%3A%2F%2Fgithub.com%2Fclickalicious%2FphpMemAdmin&tw_p=tweetbutton" target="_blank">

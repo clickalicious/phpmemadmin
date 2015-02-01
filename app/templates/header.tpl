@@ -44,7 +44,9 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="index.php">phpMemAdmin</a>
+            <a class="navbar-brand" href="index.php">
+                <img src="assets/img/logo.png" width="160" height="98" />
+            </a>
         </div>
 
         <div id="navbar" class="navbar-collapse collapse">

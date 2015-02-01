@@ -2,21 +2,13 @@
   "username": "admin",
   "password": "pass",
   "cluster": {
-    "name": "CLUSTER",
+    "name": "Cluster",
     "thresholds": {
         "notice": 50,
         "warning": 75,
         "error": 95
     },
     "hosts": [
-      {
-        "host": "127.0.0.1",
-        "port": 11211
-      },
-      {
-        "host": "localhost",
-        "port": 11211
-      },
       {
         "host": "127.0.0.1",
         "port": 11211
@@ -29,5 +21,5 @@
   "format": {
     "date": "Y-m-dTH:i:s"
   },
-  "updatecheck": true
+  "updatecheck": false
 }
