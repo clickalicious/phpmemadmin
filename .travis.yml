@@ -33,10 +33,14 @@ after_success:
   - git tag $GIT_TAG -a -m "Generated tag from TravisCI build $TRAVIS_BUILD_NUMBER"
   - git push --tags --quiet https://$GITHUBKEY@github.com/clickalicious/phpMemAdmin > /dev/null 2>&1
 
+# whitelist
 branches:
-  except:
-    - /^build-[0-9a-z\-]*/
+  only:
+    - master
+    - stable
 
 matrix:
+  fast_finish: true
   allow_failures:
     - php: hhvm
+
