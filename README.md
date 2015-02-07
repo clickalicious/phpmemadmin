@@ -1,7 +1,7 @@
 ![Logo of phpMemAdmin](docs/logo-large.png)
 Bringing `Memcached` to the web
 
-  
+
 | [![Build Status](https://travis-ci.org/clickalicious/phpMemAdmin.svg?branch=master)](https://travis-ci.org/clickalicious/phpMemAdmin) 	| [![Scrutinizer](https://img.shields.io/scrutinizer/g/clickalicious/phpMemAdmin.svg)](https://scrutinizer-ci.com/g/clickalicious/phpMemAdmin/) 	| [![clickalicious premium](https://img.shields.io/badge/clickalicious-premium-green.svg?style=flat)](https://www.clickalicious.de/) 	| [![Packagist](https://img.shields.io/packagist/l/clickalicious/phpmemadmin.svg?style=flat)](http://opensource.org/licenses/BSD-3-Clause) 	|
 |---	|---	|---	|---	|
 | [![GitHub issues](https://img.shields.io/github/issues/clickalicious/phpmemadmin.svg?style=flat)](https://github.com/clickalicious/phpMemAdmin/issues) 	| [![Coverage Status](https://coveralls.io/repos/clickalicious/phpMemAdmin/badge.svg)](https://coveralls.io/r/clickalicious/phpMemAdmin)  	| [![GitHub release](https://img.shields.io/github/release/clickalicious/phpMemAdmin.svg?style=flat)](https://github.com/clickalicious/phpMemAdmin/releases) 	| [![GitHub stars](https://img.shields.io/github/stars/clickalicious/phpmemadmin.svg?style=flat)](https://github.com/clickalicious/phpMemAdmin/stargazers)  	|
@@ -25,8 +25,7 @@ Bringing `Memcached` to the web
 
 ## Philosophy
 
-`phpMemAdmin` was designed as helper while developing a cache in PHP using Memcached as in memory store. I had a need for a tool which displays me modified data stored in Memcached for example. The existing tools did not provide a UI i would describe as usable so i wrote my own. Trying to align it with the `P
-
+`phpMemAdmin` was designed as helper while developing a cache in PHP using Memcached as in memory store. I had a need for a tool which displays me modified data stored in Memcached for example. The existing tools did not provide a UI i would describe as usable so i wrote my own. Trying to align it with the `PECL` Memcached extension.
 
 ## Installation
 The recommended way to install this tool is through [Composer](http://getcomposer.org/). Require the `clickalicious/phpmemadmin` package into your `composer.json` file:
@@ -40,13 +39,15 @@ The recommended way to install this tool is through [Composer](http://getcompose
 ```
 **phpMemAdmin** is also available as [download from github packed as zip-file](https://github.com/clickalicious/phpMemAdmin/archive/master.zip "zip package containing library for download") or via `git clone https://github.com/clickalicious/phpMemAdmin.git .`
 
+### Config
+After install is completed ...
 
 ## Screenshots
 
 | Cluster Dashboard |
 |:---:|
 | ![Cluster Dashboard](docs/phpMemAdmin_01-small.png) |
- 
+
 
 ----------
 
@@ -70,7 +71,7 @@ There is currently no documentation.
 
 
 ## Versioning
-For a consistent versioning i decided to make use of `Semantic Versioning 2.0.0` http://semver.org. Its easy to understand, very common and known from many other software projects. 
+For a consistent versioning i decided to make use of `Semantic Versioning 2.0.0` http://semver.org. Its easy to understand, very common and known from many other software projects.
 
 
 ## Roadmap
