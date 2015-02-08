@@ -34,13 +34,52 @@ The recommended way to install this tool is through [Composer](http://getcompose
 {
     "require": {
         "clickalicious/phpmemadmin": "~0.1"
+    },
+    "scripts": {
+    	"post-install-cmd": [
+        	"Clickalicious\\PhpMemAdmin\\Installer::postInstall"
+    	]
     }
 }
 ```
+
+**Important!** The postInstall call is important - it installs all required files and shows you an example vhost configuration for your installation. So be sure to add it to the `composer.json` (as shown above) before you call `composer install`.
+
 **phpMemAdmin** is also available as [download from github packed as zip-file](https://github.com/clickalicious/phpMemAdmin/archive/master.zip "zip package containing library for download") or via `git clone https://github.com/clickalicious/phpMemAdmin.git .`
 
 ### Config
-After install is completed ...
+After install is completed you will find a configuration file called `.config.dist` in the directory 'app/'. Rename this file to `.config` to enable you local configuration. The configuration is a simple JSON-structure which is self explaining. Example (.config.dist):
+
+```json
+{
+  "username": "admin",
+  "password": "pass",
+  "cluster": {
+    "name": "Cluster",
+    "thresholds": {
+        "notice": 50,
+        "warning": 75,
+        "error": 95
+    },
+    "hosts": [
+      {
+        "host": "127.0.0.1",
+        "port": 11211
+      }
+    ]
+  },
+  "render": {
+    "auto": true
+  },
+  "format": {
+    "date": "Y-m-dTH:i:s"
+  },
+  "updatecheck": false
+}
+
+```
+
+As you can see - you can add hosts of your cluster to `hosts` node in the tree. To enable `updatecheck` set it to true. Of course be sure to change `username` and `password`!
 
 ## Screenshots
 
