@@ -12,7 +12,7 @@ if (php_sapi_name() !== 'cli') {
  * phpMemAdmin
  *
  * Installer.php - Installer for phpMemAdmin. This installer automate the single
- * steps of symlinking folders to document root. On Windows the symlinking
+ * steps of symlink folders to document root. On Windows the symlink functionality
  * requires administrator privileges on *nix platforms you will need the right
  * to symlink to the folder in general.
  *
@@ -71,13 +71,13 @@ use \Clickalicious\PhpMemAdmin\Exception;
 use \Clickalicious\PhpMemAdmin\BaseInstaller;
 
 define(
-'PHPMEMADMIN_INSTALLER_VERSION',
-'$Id$'
+    'PROJECT_INSTALLER_VERSION',
+    '$Id$'
 );
 
 /**
  * Installer for phpMemAdmin. This installer automate the single
- * steps of symlinking folders to document root. On Windows the symlinking
+ * steps of symlink folders to document root. On Windows the symlink functionality
  * requires administrator privileges on *nix platforms you will need the right
  * to symlink to the folder in general.
  *
@@ -106,9 +106,27 @@ class Installer extends BaseInstaller
         'bin',
     );
 
+    /**
+     * The project name or slug in full length.
+     *
+     * @var string
+     * @access public
+     * @const
+     */
+    const PROJECT_NAME = 'phpMemAdmin - Bringing Memcached to the web';
 
     /**
-     * Installer process for DoozR's bootstrap project based on post install event hook on composer.
+     * The project short name.
+     *
+     * @var string
+     * @access public
+     * @const
+     */
+    const PROJECT_NAME_SHORT = 'phpMemAdmin';
+
+
+    /**
+     * Installer process for project based on post install event hook on composer.
      *
      * @param CommandEvent $event The event passed in by Composer.
      *
@@ -119,9 +137,6 @@ class Installer extends BaseInstaller
      */
     public static function postInstall(CommandEvent $event)
     {
-        echo 123;
-        die;
-
         // Detect path to composer.json
         self::setInstallPath(
             self::retrieveInstallPath()
@@ -155,7 +170,7 @@ class Installer extends BaseInstaller
 
         // Construct menus ...
         $menu1 = array(
-            'install' => \cli\Colors::colorize('%N%gInstall DoozR\'s bootstrap project%N'),
+            'install' => \cli\Colors::colorize('%N%gInstall ' . self::PROJECT_NAME_SHORT . '%N'),
             'quit'    => \cli\Colors::colorize('%N%rQuit %N'),
         );
         $menu2 = \cli\Colors::colorize('%NInstall to %g' . self::getInstallPath() . ' %N');
@@ -166,7 +181,7 @@ class Installer extends BaseInstaller
         $menu4 = 'Enter path';
 
         // Show the big old school banner - yeah i like :)
-        self::showDoozrBanner();
+        self::showBanner();
 
         // Retrieve and store arguments
         self::initArguments($event);
@@ -221,7 +236,7 @@ class Installer extends BaseInstaller
                 if ($valid === true) {
                     if (self::install(self::getInstallPath() . DIRECTORY_SEPARATOR) === true) {
                         self::showSuccess();
-                        self::showVhostExample(self::getInstallPath());
+                        self::showVhostExample(self::getInstallPath() . DIRECTORY_SEPARATOR);
                         self::showOutro(self::getInstallPath());
 
                     } else {
@@ -269,7 +284,7 @@ class Installer extends BaseInstaller
     {
         \cli\line();
         \cli\line(
-            \cli\Colors::colorize('%N%n%gInstallation of %yDoozR\'s%g bootstrap project was successful.%N%n')
+            \cli\Colors::colorize('%N%n%gInstallation of %y' . self::PROJECT_NAME_SHORT . '%g was successful.%N%n')
         );
 
         return true;
@@ -319,7 +334,7 @@ class Installer extends BaseInstaller
     {
         \cli\line();
         \cli\line(
-            \cli\Colors::colorize('%N%n%1Installation of DoozR\'s bootstrap project failed.%N%n')
+            \cli\Colors::colorize('%N%n%1Installation of ' . self::PROJECT_NAME_SHORT . ' failed.%N%n')
         );
     }
 
@@ -334,12 +349,8 @@ class Installer extends BaseInstaller
     protected static function showOutro($projectRoot = 'n.a.')
     {
         \cli\line();
-        \cli\line(\cli\Colors::colorize('%nEnjoy developing with %yDoozR%n'));
-        \cli\line('To maintain your app you can now run %k%Uphp app/console%n%N from your project');
-        \cli\line('root: %k%U' . $projectRoot . '%n%N');
+        \cli\line(\cli\Colors::colorize('%nEnjoy your installation of %y' . self::PROJECT_NAME_SHORT . '%n'));
         \cli\line();
-        \cli\line('This will offer you options like:');
-        \cli\line('  --webserver=start To run DoozR on PHP\'s internal webserver - instantly.');
     }
 
     /**
@@ -354,7 +365,7 @@ class Installer extends BaseInstaller
      */
     protected static function install($targetDirectory)
     {
-        $notify = new \cli\notify\Spinner(\cli\Colors::colorize('%N%n%yInstalling bootstrap project ...%N%n'), 100);
+        $notify = new \cli\notify\Spinner(\cli\Colors::colorize('%N%n%yInstalling ...%N%n'), 100);
 
         // Define source & destination
         $source      = self::getSourcePath();
@@ -363,24 +374,6 @@ class Installer extends BaseInstaller
         // Iterate and copy ...
         foreach (self::getFolders() as $folder) {
             self::xcopy($source . $folder, $destination . $folder);
-        }
-
-        $target    = realpath($destination . 'vendor/maximebf/debugbar/src/DebugBar/Resources');
-        $link      = (realpath($destination . 'web') !== false) ?
-            realpath($destination . 'web') . DIRECTORY_SEPARATOR . 'assets' :
-            false;
-
-        if ($target !== false && $link !== false) {
-            // Create important symlinks to required assets like for DebugBar
-            $symlinked = symlink($target, $link);
-        } else {
-            $symlinked = false;
-        }
-
-        if ($symlinked === false) {
-            self::showError(
-                'Could not create symlink from "' . $target . '" to "' . $link . '"'
-            );
         }
 
         $notify->finish();

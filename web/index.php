@@ -52,8 +52,25 @@
  * @link       https://github.com/clickalicious/phpMemAdmin
  */
 
-require_once '../lib/Clickalicious/PhpMemAdmin/Bootstrap.php';
-require_once CLICKALICIOUS_PHPMEMADMIN_BASE_PATH . 'vendor/autoload.php';
+$path = realpath(dirname(__FILE__) . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR) . DIRECTORY_SEPARATOR;
+
+define(
+	'CLICKALICIOUS_PHPMEMADMIN_BASE_PATH',
+	$path
+);
+
+// Is composer setup we're running in?
+if (true === file_exists('../vendor/autoload.php')) {
+	include_once '../vendor/autoload.php';
+
+} else {
+	set_include_path(
+		get_include_path() . PATH_SEPARATOR . $path
+	);
+}
+
+// Bootstrapping is just error handling and stuff like that ...
+require_once 'Clickalicious/PhpMemAdmin/Bootstrap.php';
 
 /**
  * I decided to make config handling not part of phpMemAdmin (currently not!).

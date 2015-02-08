@@ -54,13 +54,6 @@ namespace Clickalicious\PhpMemAdmin;
  * @link       https://github.com/clickalicious/phpMemAdmin
  */
 
-// The base path to /lib/ if we don't have Composer we need to know root path
-define(
-'CLICKALICIOUS_PHPMEMADMIN_BASE_PATH',
-    realpath(dirname(__FILE__) . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . '..') .
-    DIRECTORY_SEPARATOR
-);
-
 /**
  * Fetch all errors as well as notices ...
  */

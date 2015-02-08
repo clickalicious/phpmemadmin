@@ -11,7 +11,10 @@ if (php_sapi_name() !== 'cli') {
 /**
  * phpMemAdmin
  *
- * BaseInstaller.php - ...
+ * BaseInstaller.php - Base of installer for phpMemAdmin. This installer automate the single
+ * steps of symlink folders to document root. On Windows the symlink functionality
+ * requires administrator privileges on *nix platforms you will need the right
+ * to symlink to the folder in general.
  *
  *
  * PHP versions 5.5
@@ -66,7 +69,10 @@ ini_set('html_errors', 0);
 /**
  * phpMemAdmin
  *
- * ...
+ * Base of installer for phpMemAdmin. This installer automate the single
+ * steps of symlink folders to document root. On Windows the symlink functionality
+ * requires administrator privileges on *nix platforms you will need the right
+ * to symlink to the folder in general.
  *
  * @category   Clickalicious
  * @package    Clickalicious_PhpMemAdmin
@@ -276,7 +282,7 @@ class BaseInstaller
     {
         $path = DIRECTORY_SEPARATOR . implode(
                 DIRECTORY_SEPARATOR,
-                array('lib', 'Clickalicious','PhpMemAdmin', 'Installer.php')
+                array('lib', 'Clickalicious','PhpMemAdmin', 'BaseInstaller.php')
             );
 
         return realpath(str_replace($path, '', __FILE__)) . DIRECTORY_SEPARATOR;
@@ -294,8 +300,8 @@ class BaseInstaller
     {
         \cli\line();
         \cli\line(\cli\Colors::colorize('%y+----------------------------------------------------------------------+%N'));
-        \cli\line(\cli\Colors::colorize('%y| Welcome to phpMemAdmin\'s bootstrap project installer.               |%N'));
-        \cli\line(\cli\Colors::colorize('%y| Version: ' . DOOZR_INSTALLER_VERSION . '             |%N'));
+        \cli\line(\cli\Colors::colorize('%y| Installer                                                            |%N'));
+        \cli\line(\cli\Colors::colorize('%y| Version: ' . PROJECT_INSTALLER_VERSION . '             |%N'));
         \cli\line(\cli\Colors::colorize('%y+----------------------------------------------------------------------+%N'));
     }
 
@@ -354,7 +360,7 @@ class BaseInstaller
     }
 
     /**
-     * Show phpMemAdmin banner.
+     * Show project banner.
      *
      * @author Benjamin Carl <opensource@clickalicious.de>
      * @return void
