@@ -349,7 +349,9 @@ class Installer extends BaseInstaller
     protected static function showOutro($projectRoot = 'n.a.')
     {
         \cli\line();
-        \cli\line(\cli\Colors::colorize('%nEnjoy your installation of %y' . self::PROJECT_NAME_SHORT . '%n'));
+        \cli\line(\cli\Colors::colorize(
+            '%nEnjoy your installation of %y' . self::PROJECT_NAME_SHORT . ' (document root: "' . $projectRoot . '")%n')
+        );
         \cli\line();
     }
 

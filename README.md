@@ -18,6 +18,10 @@ Bringing `Memcached` to the web
  - Responsive and mobile ready
 
 
+## Notice
+This software is currently in early alpha state and so i want to warn - There is currently no ciritcal bug i know about but maybe still some potential for (Memcached) data loss - from my point of view its not critical in development cause it's a non-persistent memory store we're talkin about - but it's just fair to warn you before you use it! :)
+
+
 ## Requirements
 
  - PHP >= 5.3 (compatible up to version 5.6 - but **not compatible** with *hhvm*)
@@ -127,6 +131,10 @@ For a consistent versioning i decided to make use of `Semantic Versioning 2.0.0`
 <a href="https://twitter.com/intent/tweet?hashtags=&original_referer=http%3A%2F%2Fgithub.com%2F&text=%23phpMemAdmin%20-%20Bringing%20%40memcached%20to%20the%20web.%20https%3A%2F%2Fgithub.com%2Fclickalicious%2FphpMemAdmin&tw_p=tweetbutton" target="_blank">
   <img src="http://jpillora.com/github-twitter-button/img/tweet.png"></img>
 </a>
+
+
+## Known Limitations
+`phpMemAdmin` sometimes has trouble reading data written by `PHP Memcache` and/or `PHP Memcached` (note the d at the end) extension. So if you try to read data written by any of these extensions and get in trouble try to reset the store to clean state and try to manage data with `phpMemAdmin`. I still work on those compatibility issues trying to fix them to provide a maximum of compatibility and stability as well.  
 
 
 ## Author
