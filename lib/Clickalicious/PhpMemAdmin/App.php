@@ -793,6 +793,7 @@ class App
     {
         $title = $this->getTitle();
         $titleShort = explode(' ', $title);
+        $activeHost = $this->getActiveHost(true);
 
         $variables                = $this->defaultTemplateVariables;
         $variables['menu']        = $this->getMenuHtml();
@@ -801,8 +802,8 @@ class App
         $variables['clusterName'] = $this->getCluster();
         $variables['uri']         = $_SERVER['PHP_SELF'] . '?action=' . $this->getAction() . '&host=' . $this->getActiveHost();
         $variables['hostFull']    = $this->getActiveHost();
-        $variables['host']        = $this->getActiveHost(true)[0];
-        $variables['port']        = $this->getActiveHost(true)[1];
+        $variables['host']        = $activeHost[0];
+        $variables['port']        = $activeHost[1];
         $variables['year']        = date('Y');
         $variables['php']         = phpversion();
 
