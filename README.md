@@ -37,7 +37,7 @@ The recommended way to install this tool is through [Composer](http://getcompose
 ```json
 {
     "require": {
-        "clickalicious/phpmemadmin": "~0.1"
+        "clickalicious/phpmemadmin": "~0.4"
     },
     "scripts": {
     	"post-install-cmd": [
@@ -47,7 +47,7 @@ The recommended way to install this tool is through [Composer](http://getcompose
 }
 ```
 
-**Important!** The postInstall call is important - it installs all required files and shows you an example vhost configuration for your installation. So be sure to add it to the `composer.json` (as shown above) before you call `composer install`.
+**Important!** The postInstall call is important - it installs all required files and shows you an example vhost configuration for your installation. So be sure to add it to the `composer.json` (as shown above) before you call `composer install`. phpMemAdmin requires at least v0.4.0 of Memcached.php!
 
 **phpMemAdmin** is also available as [download from github packed as zip-file](https://github.com/clickalicious/phpMemAdmin/archive/master.zip "zip package containing library for download") or via `git clone https://github.com/clickalicious/phpMemAdmin.git .`
 
@@ -58,6 +58,7 @@ After install is completed you will find a configuration file called `.config.di
 {
   "username": "admin",
   "password": "pass",
+  "timeout": -1,
   "cluster": {
     "name": "Cluster",
     "thresholds": {
@@ -119,6 +120,8 @@ For a consistent versioning i decided to make use of `Semantic Versioning 2.0.0`
 
 ## Roadmap
 
+- [ ] General stability improvements and tests
+- [ ] Realtime statistics
 - [ ] Move all assets from CDN to local filesystem as precondition for compiling everything into a single file app (requires an issue).
 - [ ] Move "settings" from dashboard to an own page
 - [ ] Add more checks to cluster health check
