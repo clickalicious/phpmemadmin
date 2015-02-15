@@ -862,7 +862,7 @@ class App
                 $value = $this->castAsPhpType($arguments['value']);
 
                 if (true !== $result = $this
-                    ->getMemcachedClient($host[0], $host[1])
+                    ->getMemcachedClient($host[0], $host[1], $this->getConfig()->timeout)
                     ->set($arguments['set'], $value)
                 ) {
                     $error = $this->errorContext(
@@ -890,7 +890,7 @@ class App
                 $value = $this->castAsPhpType($arguments['value']);
 
                 if (true !== $result = $this
-                    ->getMemcachedClient($host[0], $host[1])
+                    ->getMemcachedClient($host[0], $host[1], $this->getConfig()->timeout)
                     ->replace($arguments['replace'], $value)
                 ) {
                     $error = $this->errorContext(
@@ -906,7 +906,7 @@ class App
                 $arguments['append'] = strip_tags($arguments['append'])
             ) {
                 if (true !== $result = $this
-                    ->getMemcachedClient($host[0], $host[1])
+                    ->getMemcachedClient($host[0], $host[1], $this->getConfig()->timeout)
                     ->append($arguments['append'], $arguments['value'])
                 ) {
                     $error = $this->errorContext(
@@ -922,7 +922,7 @@ class App
                 $arguments['prepend'] = strip_tags($arguments['prepend'])
             ) {
                 if (true !== $result = $this
-                    ->getMemcachedClient($host[0], $host[1])
+                    ->getMemcachedClient($host[0], $host[1], $this->getConfig()->timeout)
                     ->prepend($arguments['prepend'], $arguments['value'])
                 ) {
                     $error = $this->errorContext(
@@ -940,7 +940,7 @@ class App
                 $value = $this->castAsPhpType($arguments['value']);
 
                 if (true !== is_float($result = $this
-                    ->getMemcachedClient($host[0], $host[1])
+                    ->getMemcachedClient($host[0], $host[1], $this->getConfig()->timeout)
                     ->incr($arguments['increment'], $value))
                 ) {
                     $error = $this->errorContext(
@@ -959,7 +959,7 @@ class App
                 $value = $this->castAsPhpType($arguments['value']);
 
                 if (true !== is_float($result = $this
-                    ->getMemcachedClient($host[0], $host[1])
+                    ->getMemcachedClient($host[0], $host[1], $this->getConfig()->timeout)
                     ->decr($arguments['decrement'], $value))
                 ) {
                     $error = $this->errorContext(
@@ -976,7 +976,7 @@ class App
                 $arguments['delete'] = strip_tags($arguments['delete'])
             ) {
                 if (true !== $result = $this
-                    ->getMemcachedClient($host[0], $host[1])
+                    ->getMemcachedClient($host[0], $host[1], $this->getConfig()->timeout)
                     ->delete($arguments['delete'])
                 ) {
                     $error = $this->errorContext(
@@ -989,7 +989,7 @@ class App
                 $arguments['flush'] = strip_tags($arguments['flush'])
             ) {
                 if (true !== $result = $this
-                    ->getMemcachedClient($host[0], $host[1])
+                    ->getMemcachedClient($host[0], $host[1], $this->getConfig()->timeout)
                     ->flush()
                 ) {
                     $error = $this->errorContext(
@@ -1163,14 +1163,15 @@ class App
     /**
      * Returns an instance of Client for host and port combination.
      *
-     * @param string $host The host to return instance for
-     * @param int    $port The port to return instance for
+     * @param string $host    The host to return instance for
+     * @param int    $port    The port to return instance for
+     * @param int    $timeout The timeout used when connecting
      *
      * @author Benjamin Carl <opensource@clickalicious.de>
      * @return \Clickalicious\Memcached\Client A client instance
      * @access protected
      */
-    protected function getMemcachedClient($host, $port = Client::DEFAULT_PORT)
+    protected function getMemcachedClient($host, $port = Client::DEFAULT_PORT, $timeout = null)
     {
         $uuid    = $this->uuid($host, $port);
         $clients = $this->getClients();
@@ -1182,6 +1183,12 @@ class App
             $client
                 ->host($host)
                 ->port($port);
+
+            // Check for custom timeout (maybe required when connecting outside localhost = more latency)
+            if (null !== $timeout && true === is_int($timeout) && $timeout >= 0) {
+                $client
+                    ->timeout($timeout);
+            }
 
             $clients[$uuid] = $client;
             $this->setClients($clients);
@@ -2095,7 +2102,7 @@ class App
     protected function getSettings($host)
     {
         $host   = explode(':', $host);
-        $client = $this->getMemcachedClient($host[0], $host[1]);
+        $client = $this->getMemcachedClient($host[0], $host[1], $this->getConfig()->timeout);
 
         return $client->stats(CLIENT::STATS_TYPE_SETTINGS);
     }
@@ -2117,7 +2124,11 @@ class App
         // Passed host(s) to this method
         foreach ($hosts as $host) {
             $currentHost       = explode(':', $host);
-            $client            = $this->getMemcachedClient($currentHost[0], $currentHost[1]);
+            $client            = $this->getMemcachedClient(
+                $currentHost[0],
+                $currentHost[1],
+                $this->getConfig()->timeout
+            );
             $statistics[$host] = $client->stats();
         }
 
@@ -2259,7 +2270,7 @@ class App
         // Assume empty result
         $result = array();
 
-        $client = $this->getMemcachedClient($host, $port);
+        $client = $this->getMemcachedClient($host, $port, $this->getConfig()->timeout);
 
         // Fetch all keys and all values ...
         $allSlabs  = $client->stats(Client::STATS_TYPE_SLABS);

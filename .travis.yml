@@ -14,7 +14,8 @@ before_install:
   - composer self-update
 
 before_script:
-  - composer install --prefer-source
+  - composer install --dev --prefer-source
+  - composer --optimize-autoloader
   - mkdir -p ./build/logs
 
 script:
@@ -22,6 +23,10 @@ script:
 
 after_script:
   - php vendor/bin/coveralls
+  - wget https://scrutinizer-ci.com/ocular.phar
+  - php ocular.phar code-coverage:upload --access-token=$SCRUTINIZERKEY --format=php-clover ./build/logs/clover.xml > /dev/null 2>&1
+
+after_success:
   # CREATE GIT TAG
   - git config --global user.email "builds@travis-ci.org"
   - git config --global user.name "Travis"
@@ -41,4 +46,3 @@ matrix:
   fast_finish: true
   allow_failures:
     - php: hhvm
-

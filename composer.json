@@ -11,7 +11,7 @@
     }
   ],
   "require": {
-    "clickalicious/memcached.php": "~0.1",
+    "clickalicious/memcached.php": "~0.4",
     "wp-cli/php-cli-tools": "~0.10"
   },
   "require-dev": {
