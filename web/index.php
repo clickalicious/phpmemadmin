@@ -55,18 +55,18 @@
 $path = realpath(dirname(__FILE__) . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR) . DIRECTORY_SEPARATOR;
 
 define(
-	'CLICKALICIOUS_PHPMEMADMIN_BASE_PATH',
-	$path
+    'CLICKALICIOUS_PHPMEMADMIN_BASE_PATH',
+    $path
 );
 
 // Is composer setup we're running in?
 if (true === file_exists('../vendor/autoload.php')) {
-	include_once '../vendor/autoload.php';
+    include_once '../vendor/autoload.php';
 
 } else {
-	set_include_path(
-		get_include_path() . PATH_SEPARATOR . $path
-	);
+    set_include_path(
+        get_include_path() . PATH_SEPARATOR . $path
+    );
 }
 
 // Bootstrapping is just error handling and stuff like that ...
@@ -92,8 +92,7 @@ $config = json_decode(
  */
 $app = new \Clickalicious\PhpMemAdmin\App(
     $config,
-    new \Clickalicious\Memcached\Client(),      //\\ Memcached.php client as master to clone
-    '/Projekte/phpMemAdmin/web/'
+    new \Clickalicious\Memcached\Client()       //\\ Memcached.php client as master to clone
 );
 
 /**
