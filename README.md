@@ -37,7 +37,7 @@ The recommended way to install this tool is through [Composer](http://getcompose
 ```json
 {
     "require": {
-        "clickalicious/phpmemadmin": "~0.4"
+        "clickalicious/phpmemadmin": "~0.3"
     },
     "scripts": {
     	"post-install-cmd": [
