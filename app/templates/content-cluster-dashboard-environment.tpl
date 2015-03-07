@@ -23,7 +23,7 @@
             <span class="badge">{{cmd_get}}</span> <b>get</b> commands processed
         </li>
         <li class="list-group-item">
-            <span class="badge">{{cmd_get}}</span> <b>flush</b> commands processed
+            <span class="badge">{{cmd_flush}}</span> <b>flush</b> commands processed
         </li>
         <li class="list-group-item">
             <span class="badge">{{bytes_written}}</span> bytes written (total) <span class="">Info</span>
