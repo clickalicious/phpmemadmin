@@ -56,7 +56,7 @@ The recommended way to install this tool is through [Composer](http://getcompose
 **phpMemAdmin** is also available as [download from github packed as zip-file](https://github.com/clickalicious/phpMemAdmin/archive/master.zip "zip package containing library for download") or via `git clone https://github.com/clickalicious/phpMemAdmin.git .`
 
 ### Config
-After install is completed you will find a configuration file called `.config.dist` in the directory 'app/'. Rename this file to `.config` to enable you local configuration. The configuration is a simple JSON-structure which is self explaining. Example (.config.dist):
+After install is completed you will find a configuration file called `.config.dist` in the directory `app/`. Rename this file to `.config` to enable you local configuration. The configuration is a simple JSON-structure which is self explaining. Example (.config.dist):
 
 ```json
 {
