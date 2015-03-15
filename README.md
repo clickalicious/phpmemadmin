@@ -2,13 +2,28 @@
 ---
 # phpMemAdmin
 
-![Logo of phpMemAdmin](docs/logo-large.png)
-Bringing `Memcached` to the web
+![Logo of phpMemAdmin](docs/logo-large.png)  
+Bringing `Memcached` to the web  
 
 
 | [![Build Status](https://travis-ci.org/clickalicious/phpMemAdmin.svg?branch=master)](https://travis-ci.org/clickalicious/phpMemAdmin) 	| [![Scrutinizer](https://img.shields.io/scrutinizer/g/clickalicious/phpMemAdmin.svg)](https://scrutinizer-ci.com/g/clickalicious/phpMemAdmin/) 	| [![clickalicious premium](https://img.shields.io/badge/clickalicious-premium-green.svg?style=flat)](https://www.clickalicious.de/) 	| [![Packagist](https://img.shields.io/packagist/l/clickalicious/phpmemadmin.svg?style=flat)](http://opensource.org/licenses/BSD-3-Clause) 	|
 |---	|---	|---	|---	|
 | [![GitHub issues](https://img.shields.io/github/issues/clickalicious/phpmemadmin.svg?style=flat)](https://github.com/clickalicious/phpMemAdmin/issues) 	| [![Coverage Status](https://coveralls.io/repos/clickalicious/phpMemAdmin/badge.svg)](https://coveralls.io/r/clickalicious/phpMemAdmin)  	| [![GitHub release](https://img.shields.io/github/release/clickalicious/phpMemAdmin.svg?style=flat)](https://github.com/clickalicious/phpMemAdmin/releases) 	| [![GitHub stars](https://img.shields.io/github/stars/clickalicious/phpmemadmin.svg?style=flat)](https://github.com/clickalicious/phpMemAdmin/stargazers)  	|
+
+
+## Table of Contents
+
+- [Features](#features)
+- [Requirements](#requirements)
+- [Philosophy](#philosophy)
+- [Installation](#installation)
+- [Screenshots](#screenshots)
+- [Documentation](#documentation) 
+- [Versioning](#versioning)
+- [Roadmap](#roadmap) 
+- [Security-Issues](#security-issues)  
+- [License »](LICENSE)  
+
 
 ## Features
 
@@ -21,8 +36,7 @@ Bringing `Memcached` to the web
  - Clean & well documented code
  - Responsive and mobile ready
 
-
-## Notice
+#### Notice
 This software is currently in early alpha state and so i want to warn - There is currently no ciritcal bug i know about but maybe still some potential for (Memcached) data loss - from my point of view its not critical in development cause it's a non-persistent memory store we're talkin about - but it's just fair to warn you before you use it! :)
 
 
@@ -144,11 +158,10 @@ For a consistent versioning i decided to make use of `Semantic Versioning 2.0.0`
 `phpMemAdmin` sometimes has trouble reading data written by `PHP Memcache` and/or `PHP Memcached` (note the d at the end) extension. So if you try to read data written by any of these extensions and get in trouble try to reset the store to clean state and try to manage data with `phpMemAdmin`. I still work on those compatibility issues trying to fix them to provide a maximum of compatibility and stability as well.  
 
 
-## Author
+## Security Issues
 
-| [![Benjamin Carl](http://de.gravatar.com/userimage/10744805/d0a6316a34accd0f2921519dfe4dee48.jpg?size=100)](http://www.clickalicious.de) |
-|---|
-| [Benjamin Carl](http://www.clickalicious.de) |
+If you encounter a (potential) security issue don't hesitate to get in contact with me `opensource@clickalicious.de` before releasing it to the public. So i get a chance to prepare and release an update before the issue is getting shared. Thank you!
+
 
 ## Sponsors  
 Thanks to our sponsors and supporters:  
