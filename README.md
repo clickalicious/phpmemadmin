@@ -56,7 +56,7 @@ The recommended way to install this tool is through [Composer](http://getcompose
         "clickalicious/phpmemadmin": "~0.3"
     },
     "scripts": {
-    	"post-install-cmd": [
+    	"post-autoload-dump": [
         	"Clickalicious\\PhpMemAdmin\\Installer::postInstall"
     	]
     }
