@@ -2,7 +2,7 @@ filter:
     paths: [lib/*]
     excluded_paths: [app/*, bin/*, docs/*, tests/*, web/*]
 before_commands:
-    - 'composer install --dev --prefer-source'
+    - 'composer install --prefer-lowest'
 tools:
     external_code_coverage: true
     php_mess_detector: true
