@@ -15,7 +15,7 @@ before_install:
   - composer self-update
 
 before_script:
-  - composer install --prefer-source --prefer-lowest
+  - composer update --prefer-lowest
   - composer --optimize-autoloader
   - mkdir -p ./build/logs
 
