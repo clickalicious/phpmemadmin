@@ -60,8 +60,8 @@ define(
 );
 
 // Is composer setup we're running in?
-if (true === file_exists('../vendor/autoload.php')) {
-    include_once '../vendor/autoload.php';
+if (true === file_exists(CLICKALICIOUS_PHPMEMADMIN_BASE_PATH . 'vendor/autoload.php')) {
+    include_once CLICKALICIOUS_PHPMEMADMIN_BASE_PATH . 'vendor/autoload.php';
 
 } else {
     set_include_path(
