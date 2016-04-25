@@ -52,7 +52,7 @@
  * @link       https://github.com/clickalicious/phpMemAdmin
  */
 
-$path = realpath(dirname(__FILE__) . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR) . DIRECTORY_SEPARATOR;
+$path = realpath(dirname(__DIR__)) . DIRECTORY_SEPARATOR;
 
 define(
     'CLICKALICIOUS_PHPMEMADMIN_BASE_PATH',
