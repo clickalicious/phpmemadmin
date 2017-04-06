@@ -52,7 +52,7 @@
  * @link       https://github.com/clickalicious/phpMemAdmin
  */
 
-$path = realpath(dirname(__FILE__) . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR) . DIRECTORY_SEPARATOR;
+$path = dirname(__DIR__) . DIRECTORY_SEPARATOR;
 
 define(
     'CLICKALICIOUS_PHPMEMADMIN_BASE_PATH',
@@ -60,8 +60,8 @@ define(
 );
 
 // Is composer setup we're running in?
-if (true === file_exists('../vendor/autoload.php')) {
-    include_once '../vendor/autoload.php';
+if (true === file_exists(CLICKALICIOUS_PHPMEMADMIN_BASE_PATH . 'vendor/autoload.php')) {
+    include_once CLICKALICIOUS_PHPMEMADMIN_BASE_PATH . 'vendor/autoload.php';
 
 } else {
     set_include_path(
