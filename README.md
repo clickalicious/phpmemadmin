@@ -1,5 +1,7 @@
-<img src="https://avatars2.githubusercontent.com/u/514566?v=3&u=4615dfc4970d93dea5d3eaf996b7903ee6e24e20&s=140" align="right" />
+<img src="https://avatars0.githubusercontent.com/u/26927954?v=3&s=140" align="right" />
+
 ---
+
 ![Logo of phpMemAdmin](docs/logo-large.png)  
 Bringing `Memcached` to the web  
 
