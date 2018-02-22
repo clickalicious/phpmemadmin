@@ -19,7 +19,6 @@ before_install:
 
 before_script:
   - composer update --prefer-lowest
-  - composer --optimize-autoloader
   - mkdir -p ./build/logs
 
 script:
