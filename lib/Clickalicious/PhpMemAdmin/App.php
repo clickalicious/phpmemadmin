@@ -2225,6 +2225,16 @@ class App
      */
     protected function authenticate()
     {
+        //skip if directory already protected
+        $headers = apache_request_headers();
+        if (
+            isset($_SERVER['PHP_AUTH_USER'])
+            && isset($_SERVER['PHP_AUTH_PW'])
+            && isset($headers['Authorization'])
+        ) {
+            return $this;
+        }
+
         // Get credentials stored ...
         $credentials = $this->getCredentials();
         $username    = $credentials['username'];
