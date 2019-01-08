@@ -2195,10 +2195,10 @@ class App
         $pageUrl .= '://' . $prefix;
 
         if ($_SERVER['SERVER_PORT'] !== '80') {
-            $pageUrl .= $_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] . $_SERVER['PHP_SELF'];
+            $pageUrl .= $_SERVER['HTTP_HOST'] . ':' . $_SERVER['SERVER_PORT'] . $_SERVER['PHP_SELF'];
 
         } else {
-            $pageUrl .= $_SERVER['SERVER_NAME'] . $_SERVER['PHP_SELF'];
+            $pageUrl .= $_SERVER['HTTP_HOST'] . $_SERVER['PHP_SELF'];
 
         }
 
